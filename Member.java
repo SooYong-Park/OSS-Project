@@ -6,7 +6,7 @@ public class Member {
 	public static void main(String[] args) {
 		
 		Scanner scn = new Scanner(System.in);
-		String Id = scn.nextLine();
+		String Id = scn.next();
 		String Password = scn.next();
 		String a[][]  = new String[20][4];
 		int i = 0, j = 0;
@@ -31,6 +31,7 @@ public class Member {
 			e.getStackTrace();
 		}
 		j = 0;
+		
 		for(i = 0; i < 20; i++) {
 			if(Id.equals(a[i][0]) && Password.equals(a[i][1])) {
 				System.out.println("로그인 성공");
@@ -43,11 +44,32 @@ public class Member {
 				break;
 			}
 		}
+		Register();
+	}
+	public static void Register() {
+		Scanner scn = new Scanner(System.in);
+		String NewId = scn.next();
+		String NewPassWord = scn.next();
+		String NewGender = scn.next(); 
+		String NewAge = scn.next();
+
+		try {
+			File file = new File("C:\\MyTemp\\MemberList.txt");
+			FileWriter fileWrite = new FileWriter(file,true);
+			
+			String s = (NewId + " " + NewPassWord + " " + NewGender + " " + NewAge);
+			fileWrite.write(s + "\r\n");
+			fileWrite.flush();
+			fileWrite.close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	/*
-	public void payment() {
+	public static void payment() {
 		try {
-			File file = new File("C:\\MyTemp\\ReceptionList.txt");
+			File file = new File("C:\\MyTemp\\NewFood.txt");
 			FileWriter fileWrite = new FileWriter(file,true);
 			
 			String s = (Id + " " + in + " " + out + " " + type + " " + total + " " + area);
