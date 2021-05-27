@@ -18,8 +18,6 @@ public class Test{
 	static String rNameList[] = new String[500000];
 	static String rSumryList[] = new String[500000];
 	static String rLevelList[] = new String[500000];
-	static String rCnoList[] = new String[500000];
-	static String rCdcList[] = new String[500000];
 	static List<Integer> Array = new ArrayList<Integer>();
 	static List<String> arr = new ArrayList<String>();
 	public static void main(String[] args) {
@@ -125,13 +123,14 @@ public class Test{
 				
 			}
 		}
+		rcpIgdetInfo(crCode);
 		rcpProcess(crCode);
 	}
 	
-	public static void rcpProcess(String c) {	//레시피 과정정보 가져와서 출력
+	public static void rcpProcess(String rcpdc) {	//레시피 과정정보 가져와서 출력
 		try {
 			String url1 = "http://211.237.50.150:7080/openapi/b53b81c76f8bc68b7fe1b656852cd6f0e5a50bfc1466e8f222272725be332249/"
-					+ "xml/Grid_20150827000000000228_1/1/20" + "?" + URLEncoder.encode("RECIPE_ID","UTF-8") + "=" + URLEncoder.encode(c, "UTF-8");
+					+ "xml/Grid_20150827000000000228_1/1/20" + "?" + URLEncoder.encode("RECIPE_ID","UTF-8") + "=" + URLEncoder.encode(rcpdc, "UTF-8");
 			DocumentBuilderFactory dbFactory1 = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder1 = dbFactory1.newDocumentBuilder();
             Document doc1 = dBuilder1.parse(url1);
@@ -145,10 +144,36 @@ public class Test{
             	Node nNode = nList1.item(temp);
             	if(nNode.getNodeType() == Node.ELEMENT_NODE){
             		Element eElement = (Element) nNode;
-            		rCnoList[temp] = getTagValue("COOKING_NO", eElement);
-            		rCdcList[temp] = getTagValue("COOKING_DC", eElement);
+            		System.out.println("+++++++++++++++++++++++++");
             		System.out.println("조리 순서  : " + getTagValue("COOKING_NO", eElement));
             		System.out.println("조리 방법  : " + getTagValue("COOKING_DC", eElement));
+            	}
+            }
+		}catch(Exception e) {
+			System.out.println("과정정보 불러오기 오류");
+		}
+	}
+	public static void rcpIgdetInfo(String rcpIgdet) {	//레시피 과정정보 가져와서 출력
+		try {
+			String url1 = "http://211.237.50.150:7080/openapi/b53b81c76f8bc68b7fe1b656852cd6f0e5a50bfc1466e8f222272725be332249/"
+					+ "xml/Grid_20150827000000000227_1/1/20" + "?" + URLEncoder.encode("RECIPE_ID","UTF-8") + "=" + URLEncoder.encode(rcpIgdet, "UTF-8");
+			DocumentBuilderFactory dbFactory1 = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder1 = dbFactory1.newDocumentBuilder();
+            Document doc1 = dBuilder1.parse(url1);
+            doc1.getDocumentElement().normalize();
+            System.out.println("Root element : " + doc1.getDocumentElement().getNodeName());
+            
+            NodeList nList1 = doc1.getElementsByTagName("row");
+            System.out.println("필요한 재료 수 : " + nList1.getLength());
+			
+			for(int temp = 0; temp < nList1.getLength(); temp++) {
+            	Node nNode = nList1.item(temp);
+            	if(nNode.getNodeType() == Node.ELEMENT_NODE){
+            		Element eElement = (Element) nNode;
+            		System.out.println("+++++++++++++++++++++++++");
+            		System.out.println("재료 이름  : " + getTagValue("IRDNT_NM", eElement));
+            		System.out.println("재료 용량  : " + getTagValue("IRDNT_CPCTY", eElement));
+            		System.out.println("재료 중요도  : " + getTagValue("IRDNT_TY_NM", eElement));
             	}
             }
 		}catch(Exception e) {
