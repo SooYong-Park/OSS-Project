@@ -38,7 +38,7 @@ public class ChoosingAlgorithm{
             }
            
             System.out.println("알고리즘 적용 후 : " + Arrays.toString(arr3));
-            Test t = new Test();
+            recipe t = new recipe();
             t.print(arr3);
             
          
