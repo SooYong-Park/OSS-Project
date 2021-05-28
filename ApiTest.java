@@ -5,7 +5,7 @@ import java.net.URLEncoder;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class ApiTest { //과정정보
+public class ApiTest { //과정정보 // 수정완료
     public static void main(String[] args) throws IOException {
         StringBuilder urlBuilder1 = new StringBuilder("http://211.237.50.150:7080/openapi/b53b81c76f8bc68b7fe1b656852cd6f0e5a50bfc1466e8f222272725be332249/xml/Grid_20150827000000000226_1/1/6"); //기본정보
         StringBuilder urlBuilder2 = new StringBuilder("http://211.237.50.150:7080/openapi/b53b81c76f8bc68b7fe1b656852cd6f0e5a50bfc1466e8f222272725be332249/xml/Grid_20150827000000000227_1/1/6"); //재료정보
