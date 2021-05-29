@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Algorithm {
     public void Algorithm(List<Integer> array) {
        
-            String [] arr3 = new String [10];
+            String [] arr3 = new String [1000];
             int [] arr2 = new int [500000];
             for(int i = 0 ; i < array.size(); i++){         
                for(int j = 0; j < array.size(); j++) {
@@ -48,11 +49,17 @@ public class Algorithm {
                      a++;
                   }
             }
+            List<String> arr4 = new ArrayList<String>();
+            for(int i = 0 ; i<arr3.length ; i++) {
+         	   if(arr3[i] != null) {
+         		   arr4.add(arr3[i]);
+         	   }
+            }
            
             
             System.out.println("알고리즘 적용 후 : " + Arrays.toString(arr3));
             Recipe t = new Recipe();
-            Recipe.print(arr3);
+            t.print(arr4);
             
          
     }
