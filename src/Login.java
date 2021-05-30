@@ -7,8 +7,8 @@ import java.io.IOException;
 import javax.swing.*;
 
 public class Login extends JFrame { // 로그인화면
-   First f = new First();
-   Register r = new Register();
+   FirstSwing f = new FirstSwing();
+  
 
    public void login() {
       JPanel p = new JPanel();
@@ -54,7 +54,7 @@ public class Login extends JFrame { // 로그인화면
       b7.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) { // 회원가입창으로 이동
-            r.register();
+         Register r = new Register();
          }
       });
       ;
