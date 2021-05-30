@@ -3,19 +3,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class Info extends JFrame{
+public class Info extends JFrame {
 
-	 TextField b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;
-	 JButton a1;
-	 static String[] cookDc = new String[10];
-	 public void info() {
+	TextField b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11;
+	static String[] Dc = new String[10];
+	static String[] Rd = new String[20];
+
+	public void info() {
 		 JPanel p = new JPanel();
 	      p.setLayout(null);
 			Label t= new Label("요리재료와 순서입니다");
 			add(t);
-			Label ma= new Label("요리재료11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+			/*Label ma= new Label();
 			add(ma);
-		
+			ma.setText(Rd[0] +", " + Rd[1] + ", " + Rd[2] +", " + Rd[3] + ", " + Rd[4] +", " + Rd[5] + ", " + Rd[6] +", " + Rd[7] + ", " + Rd[8] +", " + Rd[9]
+					+ ", " + Rd[10] + ", " + Rd[11] + ", " + Rd[12] + ", " + Rd[13] +", " + Rd[14] + ", " + Rd[15] + ", " + Rd[16] + ", " + Rd[17] + ", " + Rd[18]
+					+ ", " + Rd[19]);
+			*/
+			b11 = new TextField();
+			add(b11);
+			b11.setText(Rd[0] +", " + Rd[1] + ", " + Rd[2] +", " + Rd[3] + ", " + Rd[4] +", " + Rd[5] + ", " + Rd[6] +", " + Rd[7] + ", " + Rd[8] +", " + Rd[9]
+					+ ", " + Rd[10] + ", " + Rd[11] + ", " + Rd[12] + ", " + Rd[13] +", " + Rd[14] + ", " + Rd[15] + ", " + Rd[16] + ", " + Rd[17] + ", " + Rd[18]
+					+ ", " + Rd[19]);
+			b11.setBounds(20, 40, 950, 40);
 			
 			Label t1= new Label("순서1");
 			add(t1);
@@ -39,43 +49,41 @@ public class Info extends JFrame{
 			add(t10);
 			
 			
-			a1 = new JButton("찜하기");
-			add(a1);
 			
 			
 			b1 = new TextField();
 			add(b1);
-			b1.setText(cookDc[0]);
+			b1.setText(Dc[0]);
 			b2 = new TextField();
 			add(b2);
-			b2.setText(cookDc[1]);
+			b2.setText(Dc[1]);
 			b3 = new TextField();
 			add(b3);
-			b3.setText(cookDc[2]);
+			b3.setText(Dc[2]);
 			b4 = new TextField();
 			add(b4);
-			b4.setText(cookDc[3]);
+			b4.setText(Dc[3]);
 			b5 = new TextField();
 			add(b5);
-			b5.setText(cookDc[4]);
+			b5.setText(Dc[4]);
 			b6 = new TextField();
 			add(b6);
-			b6.setText(cookDc[5]);
+			b6.setText(Dc[5]);
 			b7 = new TextField();
 			add(b7);
-			b7.setText(cookDc[6]);
+			b7.setText(Dc[6]);
 			b8 = new TextField();
 			add(b8);
-			b8.setText(cookDc[7]);
+			b8.setText(Dc[7]);
 			b9 = new TextField();
 			add(b9);
-			b9.setText(cookDc[8]);
+			b9.setText(Dc[8]);
 			b10 = new TextField();
 			add(b10);
-			b10.setText(cookDc[9]);
+			b10.setText(Dc[9]);
 			
 			t.setBounds(400, 10, 200, 40);
-			ma.setBounds(20, 40, 950, 40);
+			//ma.setBounds(20, 40, 950, 40);
 			
 			t1.setBounds(20, 160, 50, 30);
 			t2.setBounds(20, 200, 50, 30);
@@ -100,33 +108,23 @@ public class Info extends JFrame{
 			b9.setBounds(80, 480, 700, 30);
 			b10.setBounds(80, 520, 700, 30);
 			
-			a1.setBounds(800, 550, 80, 80);
-			
-			
 			add(p);
 			setSize(1000, 700);
 			setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			setTitle("요리 만들기 화면");
 			setVisible(true);
-			
-			a1.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					try {
-						
-					} catch (Exception ex) {
-						System.out.println("오류");
-					}
-				}
-			});
-			
 	 }
-	 public String[] getDc() {
-			return cookDc;
+
+	public void setRd(String[] a) {
+		for (int i = 0; i < 20; i++) {
+			this.Rd[i] = a[i];
+		}
+	}
+
+	public void setDc(String[] b) {
+		for (int i = 0; i < 10; i++) {
+			this.Dc[i] = b[i];
 		}
 
-		public void setDc(String a[]) {
-			for (int i = 0; i < 10; i++) {
-				this.cookDc[i] = a[i];
-			}
-		}
+	}
 }

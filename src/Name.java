@@ -27,7 +27,6 @@ public class Name extends JFrame {
 		Label t2 = new Label("난이도 선택");
 		add(t2);
 
-		
 		Label n1 = new Label("음식명");
 		add(n1);
 		Label n2 = new Label("음식명");
@@ -48,7 +47,7 @@ public class Name extends JFrame {
 		add(n9);
 		Label n10 = new Label("음식명");
 		add(n10);
-		
+
 		a1 = new TextField();
 		add(a1);
 		a2 = new TextField();
@@ -69,7 +68,7 @@ public class Name extends JFrame {
 		add(a9);
 		a10 = new TextField();
 		add(a10);
-				
+
 		b1 = new TextField();
 		add(b1);
 		b2 = new TextField();
@@ -120,7 +119,7 @@ public class Name extends JFrame {
 
 		t1.setBounds(400, 5, 200, 40);
 		t2.setBounds(700, 560, 80, 40);
-		
+
 		n1.setBounds(10, 80, 60, 30);
 		n2.setBounds(10, 120, 60, 30);
 		n3.setBounds(10, 160, 60, 30);
@@ -142,7 +141,7 @@ public class Name extends JFrame {
 		a8.setBounds(80, 360, 130, 30);
 		a9.setBounds(80, 400, 130, 30);
 		a10.setBounds(80, 440, 130, 30);
-		
+
 		b1.setBounds(220, 80, 550, 30);
 		b2.setBounds(220, 120, 550, 30);
 		b3.setBounds(220, 160, 550, 30);
@@ -180,8 +179,8 @@ public class Name extends JFrame {
 			public void actionPerformed(ActionEvent t) {
 
 				try {
-					b1.setText("간략 소개 : " + Alsumry[0] + " 난이도 : " + Allevel[0]);
-					b2.setText("간략 소개 : " + Alsumry[1] + " 난이도 : " + Allevel[1]);
+					b1.setText(" 간략 소개 : " + Alsumry[0] + " 난이도 : " + Allevel[0]);
+					b2.setText(" 간략 소개 : " + Alsumry[1] + " 난이도 : " + Allevel[1]);
 					b3.setText(" 간략 소개 : " + Alsumry[2] + " 난이도 : " + Allevel[2]);
 					b4.setText(" 간략 소개 : " + Alsumry[3] + " 난이도 : " + Allevel[3]);
 					b5.setText(" 간략 소개 : " + Alsumry[4] + " 난이도 : " + Allevel[4]);
@@ -236,9 +235,9 @@ public class Name extends JFrame {
 			}
 		});
 		low.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent t) {
-				
+
 				try {
 					b1.setText(" 간략 소개 : " + Lowsumry[0] + " 난이도 : " + Lowlevel[0]);
 					b2.setText(" 간략 소개 : " + Lowsumry[1] + " 난이도 : " + Lowlevel[1]);
@@ -269,9 +268,7 @@ public class Name extends JFrame {
 		c1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					//a1.getText();
-					r.inputRcp(Alname[0]);
-					
+					r.inputRcp(a1.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -281,6 +278,7 @@ public class Name extends JFrame {
 		c2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					r.inputRcp(a2.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -290,6 +288,7 @@ public class Name extends JFrame {
 		c3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					r.inputRcp(a3.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -299,6 +298,7 @@ public class Name extends JFrame {
 		c4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					r.inputRcp(a4.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -308,6 +308,7 @@ public class Name extends JFrame {
 		c5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					r.inputRcp(a5.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -317,6 +318,7 @@ public class Name extends JFrame {
 		c6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					r.inputRcp(a6.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -326,6 +328,7 @@ public class Name extends JFrame {
 		c7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					r.inputRcp(a7.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -335,6 +338,7 @@ public class Name extends JFrame {
 		c8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					r.inputRcp(a8.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -344,6 +348,7 @@ public class Name extends JFrame {
 		c9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					r.inputRcp(a9.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -353,6 +358,7 @@ public class Name extends JFrame {
 		c10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					r.inputRcp(a10.getText());
 					i.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -370,6 +376,7 @@ public class Name extends JFrame {
 			this.Alname[i] = a[i];
 		}
 	}
+
 	public String[] getAlsumry() {
 		return Alsumry;
 	}
@@ -379,6 +386,7 @@ public class Name extends JFrame {
 			this.Alsumry[i] = a[i];
 		}
 	}
+
 	public String[] getAllevel() {
 		return Allevel;
 	}
@@ -388,6 +396,7 @@ public class Name extends JFrame {
 			this.Allevel[i] = a[i];
 		}
 	}
+
 	public String[] getHiname() {
 		return Hiname;
 	}
@@ -397,6 +406,7 @@ public class Name extends JFrame {
 			this.Hiname[i] = a[i];
 		}
 	}
+
 	public String[] getHisumry() {
 		return Hisumry;
 	}
@@ -406,6 +416,7 @@ public class Name extends JFrame {
 			this.Hisumry[i] = a[i];
 		}
 	}
+
 	public String[] getHilevel() {
 		return Hilevel;
 	}
@@ -415,6 +426,7 @@ public class Name extends JFrame {
 			this.Hilevel[i] = a[i];
 		}
 	}
+
 	public String[] getLowname() {
 		return Lowname;
 	}
@@ -424,6 +436,7 @@ public class Name extends JFrame {
 			this.Lowname[i] = a[i];
 		}
 	}
+
 	public String[] getLowsumry() {
 		return Lowsumry;
 	}
@@ -433,6 +446,7 @@ public class Name extends JFrame {
 			this.Lowsumry[i] = a[i];
 		}
 	}
+
 	public String[] getLowlevel() {
 		return Lowlevel;
 	}

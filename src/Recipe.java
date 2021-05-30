@@ -155,7 +155,6 @@ public class Recipe{
          }
          bos.close();
       } catch (Exception e) {
-         System.out.println("rcpInfoReader 오류");
          System.out.println(e);
       }
    }
@@ -222,13 +221,7 @@ public class Recipe{
             p++;
          }
       }
-      //System.out.println("음식 이름 : " rnamelist2 "간략소개 : " rsumrylist2 "난이도 : " rlevellist2);
-      for (int i = 0; i < q; i++) {
-         System.out.println("+++++++++" + rLevelList3[i] + "/" + rNameList3[i]);      // 초보 ~ 어려움
-      }
-      for (int i = 0; i < q; i++) {
-         System.out.println("반대로 : " + rLevelList4[i] + "/" + rNameList4[i]);      // 어려움 ~ 초보
-      }
+      
       Name n = new Name();
       n.setAlname(rNameList2);
       n.setAlsumry(rSumryList2);
@@ -245,9 +238,9 @@ public class Recipe{
    }
    
    public static void inputRcp(String irName) {
-	      String crCode = null;   //입력받은 음식과 일치하면 레시피코드를 저장하는 변수
-	      for (int k = 0; k < rCodeList.length; k++) {   //이름 비교해서 맞으면
-	         if (irName.equals(rNameList[k])) {   //crCode에 요리를 하고싶은 음식의 레시피코드를 넣음
+	      String crCode = null;   									//입력받은 음식과 일치하면 레시피코드를 저장하는 변수
+	      for (int k = 0; k < rCodeList.length; k++) {   			//이름 비교해서 맞으면
+	         if (irName.equals(rNameList[k])) {   					//crCode에 요리를 하고싶은 음식의 레시피코드를 넣음
 	            crCode = rCodeList[k];
 
 	         }
@@ -269,20 +262,18 @@ public class Recipe{
 
          NodeList nList1 = doc1.getElementsByTagName("row");
          String[] cookDc = new String[10];
-
+         int m = 0;
          for (int temp = 0; temp < nList1.getLength(); temp++) {
             Node nNode = nList1.item(temp);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode;
-               System.out.println("+++++++++++++++++++++++++");
-               System.out.println("조리 순서  : " + getTagValue("COOKING_NO", eElement));  //이거를 출력
-               System.out.println("조리 방법  : " + getTagValue("COOKING_DC", eElement));   //이거도
-               cookDc[temp] = getTagValue("COOKING_DC", eElement);
+               cookDc[m] = getTagValue("COOKING_DC", eElement);
+               m++;
             }
          }
-         i.setDc(cookDc);
-         String s;      //creatercpdc.txt파일 불러오는거
-         BufferedReader bos = new BufferedReader(new FileReader(crcpPath));
+        
+         String s;   
+         BufferedReader bos = new BufferedReader(new FileReader(crcpPath));		   //creatercpdc.txt파일 불러오는거
          while ((s = bos.readLine()) != null) {
             StringTokenizer tokens = new StringTokenizer(s, "/");
             createRcpDcrCode.add(tokens.nextToken());
@@ -290,20 +281,22 @@ public class Recipe{
             createRcpDc.add(tokens.nextToken());
          }
          bos.close();
-         for (int k = 0; k < createRcpDcrCode.size(); k++) {   //입력한 레시피코드가 txt파일에 있으면 여기서 출력
+         for (int k = 0; k < createRcpDcrCode.size(); k++) {  					 //입력한 레시피코드가 txt파일에 있으면 여기서 출력
             if (createRcpDcrCode.get(k).equals(rcpdc)) {
-               System.out.println("+++++++++++++++++++++++++");
-               System.out.println("조리 순서  : " + createRcpDcNo.get(k));   //이거 출력
-               System.out.println("조리 방법  : " + createRcpDc.get(k));   //이거도
+               cookDc[m] =  createRcpDc.get(k);
+               m++;
             }
          }
+         i.setDc(cookDc);										// 과정 정보를 저장
       } catch (Exception e) {
-         System.out.println("과정정보 불러오기 오류");
       }
+      
    }
 
    public static void rcpIgdetInfo(String rcpIgdet) {                            // 레시피 과정정보 가져와서 출력
-      try {
+	   String[] cookRd = new String[20]; 
+	   Info i = new Info();
+	   try {
          String url1 = "http://211.237.50.150:7080/openapi/b53b81c76f8bc68b7fe1b656852cd6f0e5a50bfc1466e8f222272725be332249/"
                + "xml/Grid_20150827000000000227_1/1/20" + "?" + URLEncoder.encode("RECIPE_ID", "UTF-8") + "="
                + URLEncoder.encode(rcpIgdet, "UTF-8");
@@ -313,23 +306,23 @@ public class Recipe{
          doc1.getDocumentElement().normalize();
 
          NodeList nList1 = doc1.getElementsByTagName("row");
-
+         int m = 0;
          for (int temp = 0; temp < nList1.getLength(); temp++) {
             Node nNode = nList1.item(temp);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode;
-               System.out.println("+++++++++++++++++++++++++");
-               System.out.println("재료 이름  : " + getTagValue("IRDNT_NM", eElement));      //출력
-               System.out.println("재료 용량  : " + getTagValue("IRDNT_CPCTY", eElement));      //출력
+				cookRd[m] = getTagValue("IRDNT_NM", eElement) + " " + getTagValue("IRDNT_CPCTY", eElement); 
+               m++;
             }
          }
+         
          for (int k = 0; k < createIgdetrCode.size(); k++) {               //txt파일과 일치하는게 있으면
             if (createIgdetrCode.get(k).equals(rcpIgdet)) {
-               System.out.println("+++++++++++++++++++++++++");
-               System.out.println("재료 이름  : " + createIgdet.get(k));      //출력
-               System.out.println("재료 용량  : " + createIgdetCpcty.get(k));   //출력
+               cookRd[m] = createIgdet.get(k) + " " + createIgdetCpcty.get(k);
+               m++;
             }
          }
+         i.setRd(cookRd);												// 재료 정보 저장
       } catch (Exception e) {
          System.out.println("과정정보 불러오기 오류");
       }
