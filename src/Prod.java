@@ -5,9 +5,10 @@ import javax.swing.*;
 
 public class Prod extends JFrame {
 
-	static String[] recipeName = new String[20];
-	static String[] recipeAmount = new String[20];
-	static String[] recipeProcess = new String[10];
+	//static String[] recipeName = new String[20];
+	//static String[] recipeAmount = new String[20];
+	int rcpcnt;
+	int procnt;
 
 	JButton c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, in, re;
 	TextField b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20;
@@ -84,67 +85,67 @@ public class Prod extends JFrame {
 		n3 = new TextField();
 		add(n3);
 
-		mf.getName(n1.getText(), n2.getText(), n3.getText());
+		
 		b1 = new TextField();
 		add(b1);
-		recipeAmount[0] = b1.getText();
+		
 		b2 = new TextField();
 		add(b2);
-		recipeAmount[1] = b2.getText();
+		
 		b3 = new TextField();
 		add(b3);
-		recipeAmount[2] = b3.getText();
+		
 		b4 = new TextField();
 		add(b4);
-		recipeAmount[3] = b4.getText();
+		
 		b5 = new TextField();
 		add(b5);
-		recipeAmount[4] = b5.getText();
+		
 		b6 = new TextField();
 		add(b6);
-		recipeAmount[5] = b6.getText();
+		
 		b7 = new TextField();
 		add(b7);
-		recipeAmount[6] = b7.getText();
+		
 		b8 = new TextField();
 		add(b8);
-		recipeAmount[7] = b8.getText();
+		
 		b9 = new TextField();
 		add(b9);
-		recipeAmount[8] = b9.getText();
+		
 		b10 = new TextField();
 		add(b10);
-		recipeAmount[9] = b10.getText();
+		
 		b11 = new TextField();
 		add(b11);
-		recipeAmount[10] = b11.getText();
+		
 		b12 = new TextField();
 		add(b12);
-		recipeAmount[11] = b12.getText();
+		
 		b13 = new TextField();
 		add(b13);
-		recipeAmount[12] = b13.getText();
+		
 		b14 = new TextField();
 		add(b14);
-		recipeAmount[13] = b14.getText();
+		
 		b15 = new TextField();
 		add(b15);
-		recipeAmount[14] = b15.getText();
+		
 		b16 = new TextField();
 		add(b16);
-		recipeAmount[15] = b16.getText();
+		
 		b17 = new TextField();
 		add(b17);
-		recipeAmount[16] = b17.getText();
+		
 		b18 = new TextField();
 		add(b18);
-		recipeAmount[17] = b18.getText();
+		
 		b19 = new TextField();
 		add(b19);
-		recipeAmount[18] = b19.getText();
+		
 		b20 = new TextField();
 		add(b20);
-		recipeAmount[19] = b20.getText();
+		
 
 		a1 = new TextField();
 		add(a1);
@@ -187,26 +188,7 @@ public class Prod extends JFrame {
 		a20 = new TextField();
 		add(a20);
 
-		recipeName[0] = a1.getText();
-		recipeName[1] = a2.getText();
-		recipeName[2] = a3.getText();
-		recipeName[3] = a4.getText();
-		recipeName[4] = a5.getText();
-		recipeName[5] = a6.getText();
-		recipeName[6] = a7.getText();
-		recipeName[7] = a8.getText();
-		recipeName[8] = a9.getText();
-		recipeName[9] = a10.getText();
-		recipeName[10] = a11.getText();
-		recipeName[11] = a12.getText();
-		recipeName[12] = a13.getText();
-		recipeName[13] = a14.getText();
-		recipeName[14] = a15.getText();
-		recipeName[15] = a16.getText();
-		recipeName[16] = a17.getText();
-		recipeName[17] = a18.getText();
-		recipeName[18] = a19.getText();
-		recipeName[19] = a20.getText();
+		
 
 		c1 = new JButton("1");
 		add(c1);
@@ -462,7 +444,7 @@ public class Prod extends JFrame {
 		c1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c1.getText()), recipeName, recipeAmount);
+					rcpcnt = 1;
 					a2.setEnabled(false);
 					a3.setEnabled(false);
 					a4.setEnabled(false);
@@ -510,7 +492,7 @@ public class Prod extends JFrame {
 		c2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c2.getText()), recipeName, recipeAmount);
+					rcpcnt = 2;
 					a3.setEnabled(false);
 					a4.setEnabled(false);
 					a5.setEnabled(false);
@@ -556,7 +538,7 @@ public class Prod extends JFrame {
 		c3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c3.getText()), recipeName, recipeAmount);
+					rcpcnt = 3;
 					a4.setEnabled(false);
 					a5.setEnabled(false);
 					a6.setEnabled(false);
@@ -600,7 +582,7 @@ public class Prod extends JFrame {
 		c4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c4.getText()), recipeName, recipeAmount);
+					rcpcnt = 4;
 					a5.setEnabled(false);
 					a6.setEnabled(false);
 					a7.setEnabled(false);
@@ -642,7 +624,7 @@ public class Prod extends JFrame {
 		c5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c5.getText()), recipeName, recipeAmount);
+					rcpcnt = 5;
 					a6.setEnabled(false);
 					a7.setEnabled(false);
 					a8.setEnabled(false);
@@ -681,7 +663,7 @@ public class Prod extends JFrame {
 		c6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c6.getText()), recipeName, recipeAmount);
+					rcpcnt = 6;
 					a7.setEnabled(false);
 					a8.setEnabled(false);
 					a9.setEnabled(false);
@@ -719,7 +701,7 @@ public class Prod extends JFrame {
 		c7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c7.getText()), recipeName, recipeAmount);
+					rcpcnt = 7;
 					a8.setEnabled(false);
 					a9.setEnabled(false);
 					a10.setEnabled(false);
@@ -755,7 +737,7 @@ public class Prod extends JFrame {
 		c8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c8.getText()), recipeName, recipeAmount);
+					rcpcnt = 8;
 					a9.setEnabled(false);
 					a10.setEnabled(false);
 					a11.setEnabled(false);
@@ -789,7 +771,7 @@ public class Prod extends JFrame {
 		c9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c9.getText()), recipeName, recipeAmount);
+					rcpcnt = 9;
 					a10.setEnabled(false);
 					a11.setEnabled(false);
 					a12.setEnabled(false);
@@ -821,7 +803,7 @@ public class Prod extends JFrame {
 		c10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c10.getText()), recipeName, recipeAmount);
+					rcpcnt = 10;
 					a11.setEnabled(false);
 					a12.setEnabled(false);
 					a13.setEnabled(false);
@@ -851,7 +833,7 @@ public class Prod extends JFrame {
 		c11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c11.getText()), recipeName, recipeAmount);
+					rcpcnt = 11;
 					a12.setEnabled(false);
 					a13.setEnabled(false);
 					a14.setEnabled(false);
@@ -879,7 +861,7 @@ public class Prod extends JFrame {
 		c12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c12.getText()), recipeName, recipeAmount);
+					rcpcnt = 12;
 					a13.setEnabled(false);
 					a14.setEnabled(false);
 					a15.setEnabled(false);
@@ -905,7 +887,7 @@ public class Prod extends JFrame {
 		c13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c13.getText()), recipeName, recipeAmount);
+					rcpcnt = 13;
 					a14.setEnabled(false);
 					a15.setEnabled(false);
 					a16.setEnabled(false);
@@ -929,7 +911,7 @@ public class Prod extends JFrame {
 		c14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c14.getText()), recipeName, recipeAmount);
+					rcpcnt = 14;
 					a15.setEnabled(false);
 					a16.setEnabled(false);
 					a17.setEnabled(false);
@@ -951,7 +933,7 @@ public class Prod extends JFrame {
 		c15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c15.getText()), recipeName, recipeAmount);
+					rcpcnt = 15;
 					a16.setEnabled(false);
 					a17.setEnabled(false);
 					a18.setEnabled(false);
@@ -971,7 +953,7 @@ public class Prod extends JFrame {
 		c16.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c16.getText()), recipeName, recipeAmount);
+					rcpcnt = 16;
 					a17.setEnabled(false);
 					a18.setEnabled(false);
 					a19.setEnabled(false);
@@ -989,7 +971,7 @@ public class Prod extends JFrame {
 		c17.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c17.getText()), recipeName, recipeAmount);
+					rcpcnt = 17;
 					a18.setEnabled(false);
 					a19.setEnabled(false);
 					a20.setEnabled(false);
@@ -1005,7 +987,7 @@ public class Prod extends JFrame {
 		c18.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c18.getText()), recipeName, recipeAmount);
+					rcpcnt = 18;
 					a19.setEnabled(false);
 					a20.setEnabled(false);
 
@@ -1019,7 +1001,7 @@ public class Prod extends JFrame {
 		c19.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c19.getText()), recipeName, recipeAmount);
+					rcpcnt = 19;
 					a20.setEnabled(false);
 
 					b20.setEnabled(false);
@@ -1031,7 +1013,7 @@ public class Prod extends JFrame {
 		c20.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getRecipe(Integer.parseInt(c20.getText()), recipeName, recipeAmount);
+					rcpcnt = 20;
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -1087,7 +1069,7 @@ public class Prod extends JFrame {
 		x1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x1.getText()), recipeProcess);
+					procnt = 1;
 					z2.setEnabled(false);
 					z3.setEnabled(false);
 					z4.setEnabled(false);
@@ -1105,7 +1087,8 @@ public class Prod extends JFrame {
 		x2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x2.getText()), recipeProcess);
+					procnt = 2;
+
 					z3.setEnabled(false);
 					z4.setEnabled(false);
 					z5.setEnabled(false);
@@ -1122,7 +1105,8 @@ public class Prod extends JFrame {
 		x3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x3.getText()), recipeProcess);
+					procnt = 3;
+
 					z4.setEnabled(false);
 					z5.setEnabled(false);
 					z6.setEnabled(false);
@@ -1138,7 +1122,8 @@ public class Prod extends JFrame {
 		x4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x4.getText()), recipeProcess);
+					procnt = 4;
+
 					z5.setEnabled(false);
 					z6.setEnabled(false);
 					z7.setEnabled(false);
@@ -1153,7 +1138,8 @@ public class Prod extends JFrame {
 		x5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x5.getText()), recipeProcess);
+					procnt = 5;
+
 					z6.setEnabled(false);
 					z7.setEnabled(false);
 					z8.setEnabled(false);
@@ -1167,7 +1153,8 @@ public class Prod extends JFrame {
 		x6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x6.getText()), recipeProcess);
+					procnt = 6;
+
 					z7.setEnabled(false);
 					z8.setEnabled(false);
 					z9.setEnabled(false);
@@ -1180,7 +1167,8 @@ public class Prod extends JFrame {
 		x7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x7.getText()), recipeProcess);
+					procnt = 7;
+
 					z8.setEnabled(false);
 					z9.setEnabled(false);
 					z10.setEnabled(false);
@@ -1192,7 +1180,8 @@ public class Prod extends JFrame {
 		x8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x8.getText()), recipeProcess);
+					procnt = 8;
+
 					z9.setEnabled(false);
 					z10.setEnabled(false);
 				} catch (Exception ex) {
@@ -1203,7 +1192,7 @@ public class Prod extends JFrame {
 		x9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x9.getText()), recipeProcess);
+					procnt = 9;
 					z10.setEnabled(false);
 				} catch (Exception ex) {
 					System.out.println("오류");
@@ -1213,7 +1202,8 @@ public class Prod extends JFrame {
 		x10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mf.getProcess(Integer.parseInt(x10.getText()), recipeProcess);
+					procnt = 10;
+
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -1238,7 +1228,68 @@ public class Prod extends JFrame {
 		});
 		in.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String[] recipeAmount = new String[20];
+				String[] recipeName = new String[20];
+				String[] proList = new String[10];
 				try {
+					recipeAmount[0] = b1.getText();
+					recipeAmount[1] = b2.getText();
+					recipeAmount[2] = b3.getText();
+					recipeAmount[3] = b4.getText();
+					recipeAmount[4] = b5.getText();
+					recipeAmount[5] = b6.getText();
+					recipeAmount[6] = b7.getText();
+					recipeAmount[7] = b8.getText();
+					recipeAmount[8] = b9.getText();
+					recipeAmount[9] = b10.getText();
+					recipeAmount[10] = b11.getText();
+					recipeAmount[11] = b12.getText();
+					recipeAmount[12] = b13.getText();
+					recipeAmount[13] = b14.getText();
+					recipeAmount[14] = b15.getText();
+					recipeAmount[15] = b16.getText();
+					recipeAmount[16] = b17.getText();
+					recipeAmount[17] = b18.getText();
+					recipeAmount[18] = b19.getText();
+					recipeAmount[19] = b20.getText();
+					
+					recipeName[0] = a1.getText();
+					recipeName[1] = a2.getText();
+					recipeName[2] = a3.getText();
+					recipeName[3] = a4.getText();
+					recipeName[4] = a5.getText();
+					recipeName[5] = a6.getText();
+					recipeName[6] = a7.getText();
+					recipeName[7] = a8.getText();
+					recipeName[8] = a9.getText();
+					recipeName[9] = a10.getText();
+					recipeName[10] = a11.getText();
+					recipeName[11] = a12.getText();
+					recipeName[12] = a13.getText();
+					recipeName[13] = a14.getText();
+					recipeName[14] = a15.getText();
+					recipeName[15] = a16.getText();
+					recipeName[16] = a17.getText();
+					recipeName[17] = a18.getText();
+					recipeName[18] = a19.getText();
+					recipeName[19] = a20.getText();
+					
+					proList[0] = z1.getText();
+					proList[1] = z2.getText();
+					proList[2] = z3.getText();
+					proList[3] = z4.getText();
+					proList[4] = z5.getText();
+					proList[5] = z6.getText();
+					proList[6] = z7.getText();
+					proList[7] = z8.getText();
+					proList[8] = z9.getText();
+					proList[9] = z10.getText();
+					
+					mf.getName(n1.getText(), n2.getText(), n3.getText());
+					mf.getRecipe(rcpcnt, recipeName, recipeAmount);
+					mf.getProcess(procnt, proList);
+					mf.MyFoodWrite();
+					JOptionPane.showMessageDialog(null, "저장 완료!!");
 
 				} catch (Exception ex) {
 					System.out.println("오류");

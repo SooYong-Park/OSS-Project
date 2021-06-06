@@ -8,8 +8,9 @@ import javax.swing.*;
 
 public class Login extends JFrame { // 로그인화면
    FirstSwing f = new FirstSwing();
-  
-
+   static String ID;
+   Select se = new Select();
+   MyFood mf = new MyFood();
    public void login() {
       JPanel p = new JPanel();
       p.setLayout(null);
@@ -69,8 +70,10 @@ public class Login extends JFrame { // 로그인화면
                String s;
                BufferedReader bos = new BufferedReader(new FileReader("회원명단.txt"));
                while ((s = bos.readLine()) != null) {
-                  array = s.split("/");
+                  array = s.split("#");
                   if (b4.getText().equals(array[1]) && b5.getText().equals(array[2])) {
+                	  se.getId(b4.getText());
+                	  mf.getId(b4.getText());
                      JOptionPane.showMessageDialog(null, "로그인이 되었습니다!!");
                      count++;
                      dispose();

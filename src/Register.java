@@ -57,10 +57,10 @@ public class Register extends JFrame {            // 회원가입화면
       public void actionPerformed(ActionEvent T) {                     //회원가입 데이터 저장
          try{
             BufferedWriter bos = new BufferedWriter(new FileWriter("회원명단.txt",true));
-            bos.write(t1.getText()+"/");
-            bos.write(t2.getText()+"/");
-            bos.write(t3.getText()+"/");
-            bos.write(t4.getText()+"/");
+            bos.write(t1.getText()+"#");
+            bos.write(t2.getText()+"#");
+            bos.write(t3.getText()+"#");
+            bos.write(t4.getText()+"#");
             bos.write(t5.getText()+"\r\n");
             bos.close();
             JOptionPane.showMessageDialog(null, "회원가입을 축하합니다!!");

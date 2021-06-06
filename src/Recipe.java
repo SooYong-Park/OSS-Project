@@ -43,10 +43,9 @@ public class Recipe{
    public static void R(int cn, String[] sn) {
       rcpInfoReader();                         // 레시피 기본정보 txt에 담는 메소드 호출
       int count = cn;
-      System.out.println(cn);
       String[] igdet = new String[5];
       for(int i = 0 ; i<count ; i++) {
-    	  igdet[i] = sn[i];
+         igdet[i] = sn[i];
       }
       
       for (int j = 0; j < count; j++) {  //재료입력 count만큼 메소드 실행
@@ -84,7 +83,7 @@ public class Recipe{
              String s;   //txt파일 배열에 입력
              BufferedReader bos = new BufferedReader(new FileReader(cigdetPath));
              while ((s = bos.readLine()) != null) {
-                StringTokenizer tokens = new StringTokenizer(s, "/");
+                StringTokenizer tokens = new StringTokenizer(s, "#");
                 createIgdetrCode.add(tokens.nextToken());
                 createIgdet.add(tokens.nextToken());
                 createIgdetCpcty.add(tokens.nextToken());
@@ -146,7 +145,7 @@ public class Recipe{
          int count = nList1.getLength();
          BufferedReader bos = new BufferedReader(new FileReader(cInfoPath));
          while ((s = bos.readLine()) != null) {
-            StringTokenizer tokens = new StringTokenizer(s, "/");
+            StringTokenizer tokens = new StringTokenizer(s, "#");
             rCodeList[count] = tokens.nextToken();
             rNameList[count] = tokens.nextToken();
             rSumryList[count] = tokens.nextToken();
@@ -232,26 +231,25 @@ public class Recipe{
       n.setLowname(rNameList3);
       n.setLowsumry(rSumryList3);
       n.setLowlevel(rLevelList3);
-      
-      //inputRcp();
+  
       
    }
    
    public static void inputRcp(String irName) {
-	      String crCode = null;   									//입력받은 음식과 일치하면 레시피코드를 저장하는 변수
-	      for (int k = 0; k < rCodeList.length; k++) {   			//이름 비교해서 맞으면
-	         if (irName.equals(rNameList[k])) {   					//crCode에 요리를 하고싶은 음식의 레시피코드를 넣음
-	            crCode = rCodeList[k];
+         String crCode = null;                              //입력받은 음식과 일치하면 레시피코드를 저장하는 변수
+         for (int k = 0; k < rCodeList.length; k++) {            //이름 비교해서 맞으면
+            if (irName.equals(rNameList[k])) {                  //crCode에 요리를 하고싶은 음식의 레시피코드를 넣음
+               crCode = rCodeList[k];
 
-	         }
-	      }
-	      rcpProcess(crCode);
-	      rcpIgdetInfo(crCode);
+            }
+         }
+         rcpProcess(crCode);
+         rcpIgdetInfo(crCode);
    }
 
    public static void rcpProcess(String rcpdc) {                   // 레시피 과정정보 가져와서 출력
       try {
-    	  Info i = new Info();
+         Info i = new Info();
          String url1 = "http://211.237.50.150:7080/openapi/b53b81c76f8bc68b7fe1b656852cd6f0e5a50bfc1466e8f222272725be332249/"
                + "xml/Grid_20150827000000000228_1/1/20" + "?" + URLEncoder.encode("RECIPE_ID", "UTF-8") + "="
                + URLEncoder.encode(rcpdc, "UTF-8");
@@ -273,30 +271,30 @@ public class Recipe{
          }
         
          String s;   
-         BufferedReader bos = new BufferedReader(new FileReader(crcpPath));		   //creatercpdc.txt파일 불러오는거
+         BufferedReader bos = new BufferedReader(new FileReader(crcpPath));         //creatercpdc.txt파일 불러오는거
          while ((s = bos.readLine()) != null) {
-            StringTokenizer tokens = new StringTokenizer(s, "/");
+            StringTokenizer tokens = new StringTokenizer(s, "#");
             createRcpDcrCode.add(tokens.nextToken());
             createRcpDcNo.add(tokens.nextToken());
             createRcpDc.add(tokens.nextToken());
          }
          bos.close();
-         for (int k = 0; k < createRcpDcrCode.size(); k++) {  					 //입력한 레시피코드가 txt파일에 있으면 여기서 출력
+         for (int k = 0; k < createRcpDcrCode.size(); k++) {                  //입력한 레시피코드가 txt파일에 있으면 여기서 출력
             if (createRcpDcrCode.get(k).equals(rcpdc)) {
                cookDc[m] =  createRcpDc.get(k);
                m++;
             }
          }
-         i.setDc(cookDc);										// 과정 정보를 저장
+         i.setDc(cookDc);                              // 과정 정보를 저장
       } catch (Exception e) {
       }
       
    }
 
    public static void rcpIgdetInfo(String rcpIgdet) {                            // 레시피 과정정보 가져와서 출력
-	   String[] cookRd = new String[20]; 
-	   Info i = new Info();
-	   try {
+      String[] cookRd = new String[20]; 
+      Info i = new Info();
+      try {
          String url1 = "http://211.237.50.150:7080/openapi/b53b81c76f8bc68b7fe1b656852cd6f0e5a50bfc1466e8f222272725be332249/"
                + "xml/Grid_20150827000000000227_1/1/20" + "?" + URLEncoder.encode("RECIPE_ID", "UTF-8") + "="
                + URLEncoder.encode(rcpIgdet, "UTF-8");
@@ -311,7 +309,7 @@ public class Recipe{
             Node nNode = nList1.item(temp);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode;
-				cookRd[m] = getTagValue("IRDNT_NM", eElement) + " " + getTagValue("IRDNT_CPCTY", eElement); 
+            cookRd[m] = getTagValue("IRDNT_NM", eElement) + " " + getTagValue("IRDNT_CPCTY", eElement); 
                m++;
             }
          }
@@ -319,10 +317,10 @@ public class Recipe{
          for (int k = 0; k < createIgdetrCode.size(); k++) {               //txt파일과 일치하는게 있으면
             if (createIgdetrCode.get(k).equals(rcpIgdet)) {
                cookRd[m] = createIgdet.get(k) + " " + createIgdetCpcty.get(k);
-               m++;
+               break;
             }
          }
-         i.setRd(cookRd);												// 재료 정보 저장
+         i.setRd(cookRd);                                    // 재료 정보 저장
       } catch (Exception e) {
          System.out.println("과정정보 불러오기 오류");
       }

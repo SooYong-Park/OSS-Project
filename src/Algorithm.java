@@ -57,7 +57,6 @@ public class Algorithm {
             }
            
             
-            System.out.println("알고리즘 적용 후 : " + Arrays.toString(arr3));
             Recipe t = new Recipe();
             t.print(arr4);
             

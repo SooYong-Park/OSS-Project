@@ -6,8 +6,22 @@ import javax.swing.*;
 public class Select extends JFrame {
 	TextField b1, b2, b3, b4, b5, b6, b7, b8, b9, b10;
 	JButton c1, c2, c3, c4, c5, c6, c7, c8, c9, c10;
+	static String FoodName[] = new String[10];
+	static String FoodInformation[] = new String[10];
+	static String Foodlevel[] = new String[10];
+	static String FoodIngredient[] = new String[10];
+	static String FoodProcess[][] = new String[10][10];
+	static String FoodProcess1[] = new String[10];
+	static String Id;
+	public void getId(String a) {
+		Id = a;
+	}
+	MyFood mf = new MyFood();
+	MyFoodInfo mfi = new MyFoodInfo();
 	
 	public void sel() {
+		mf.MyFoodRead(Id,FoodName,FoodInformation,Foodlevel,FoodIngredient,FoodProcess);
+	
 		JPanel p = new JPanel();
 		p.setLayout(null);
 		b1 = new TextField();
@@ -30,7 +44,18 @@ public class Select extends JFrame {
 		add(b9);
 		b10 = new TextField();
 		add(b10);
-
+		
+		b1.setText(FoodName[0]);
+		b2.setText(FoodName[1]);
+		b3.setText(FoodName[2]);
+		b4.setText(FoodName[3]);
+		b5.setText(FoodName[4]);
+		b6.setText(FoodName[5]);
+		b7.setText(FoodName[6]);
+		b8.setText(FoodName[7]);
+		b9.setText(FoodName[8]);
+		b10.setText(FoodName[9]);
+		
 		c1 = new JButton("선택");
 		add(c1);
 		c2 = new JButton("선택");
@@ -83,7 +108,12 @@ public class Select extends JFrame {
 		c1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[0][i];
+					}
+					mfi.setRd(FoodIngredient[0]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -92,7 +122,12 @@ public class Select extends JFrame {
 		c2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[1][i];
+					}
+					mfi.setRd(FoodIngredient[1]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -101,7 +136,12 @@ public class Select extends JFrame {
 		c3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[2][i];
+					}
+					mfi.setRd(FoodIngredient[2]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -110,7 +150,12 @@ public class Select extends JFrame {
 		c4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[3][i];
+					}
+					mfi.setRd(FoodIngredient[3]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -119,7 +164,12 @@ public class Select extends JFrame {
 		c5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[4][i];
+					}
+					mfi.setRd(FoodIngredient[4]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -128,7 +178,12 @@ public class Select extends JFrame {
 		c6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[5][i];
+					}
+					mfi.setRd(FoodIngredient[5]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -137,7 +192,12 @@ public class Select extends JFrame {
 		c7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[6][i];
+					}
+					mfi.setRd(FoodIngredient[6]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -146,7 +206,12 @@ public class Select extends JFrame {
 		c8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[7][i];
+					}
+					mfi.setRd(FoodIngredient[7]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -155,7 +220,12 @@ public class Select extends JFrame {
 		c9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[8][i];
+					}
+					mfi.setRd(FoodIngredient[8]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
@@ -164,7 +234,12 @@ public class Select extends JFrame {
 		c10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-
+					for (int i = 0; i < 10; i++) {
+						FoodProcess1[i] = FoodProcess[9][i];
+					}
+					mfi.setRd(FoodIngredient[9]);
+					mfi.setDc(FoodProcess1);
+					mfi.info();
 				} catch (Exception ex) {
 					System.out.println("오류");
 				}
