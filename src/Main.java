@@ -1,9 +1,9 @@
 public class Main {
 
    public static void main(String[] args) {
-     /* Login l = new Login();
+      Login l = new Login();
       l.login();
-      */
-	   MyFood.MyFoodRead("psy");
+      MemberSql m = new MemberSql();
+      m.connectDB();
    }
 }

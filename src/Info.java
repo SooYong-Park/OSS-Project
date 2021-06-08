@@ -80,8 +80,6 @@ public class Info extends JFrame {
 		add(c1);
 
 		t.setBounds(400, 10, 200, 40);
-		// ma.setBounds(20, 40, 950, 40);
-
 		t1.setBounds(20, 160, 50, 30);
 		t2.setBounds(20, 200, 50, 30);
 		t3.setBounds(20, 240, 50, 30);

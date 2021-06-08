@@ -7,8 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
-import java.util.Arrays;
-import java.util.Scanner;
+
 
 public class MyFood {
    static String createPath = "./create.txt";
@@ -25,24 +24,24 @@ public class MyFood {
    static int count1 = 0, count2 = -1;
    static String Id1 = null;
    public void getName(String a, String b, String c) {
-	   this.FoodName = a;
-	   this.FoodIntroduce = b;
-	   this.Level = c;
+      this.FoodName = a;
+      this.FoodIntroduce = b;
+      this.Level = c;
    }
    public void getRecipe(int d, String[] e, String [] f) {
-	   this.d = d;
-	   for(int i = 0; i < this.d; i++) {
-		   
-		   this.RecipeName[i] = e[i];
-		   this.RecipeAmount[i] = f[i];
-	   }
+      this.d = d;
+      for(int i = 0; i < this.d; i++) {
+         
+         this.RecipeName[i] = e[i];
+         this.RecipeAmount[i] = f[i];
+      }
    }
    public void getProcess(int g, String[] h) {
-	   this.g = g;
-	   for(int i = 0; i < this.g; i++) {
-		   
-		   this.RecipeProcess[i] = h[i];
-	   }
+      this.g = g;
+      for(int i = 0; i < this.g; i++) {
+         
+         this.RecipeProcess[i] = h[i];
+      }
    }
    public void MyFoodWrite() {                              // 창작요리 쓰기
       String FoodNum = String.valueOf((int)(Math.random()*100)+200000);
@@ -96,8 +95,8 @@ public class MyFood {
       String Id = Id1;
       
       try {
-    	  BufferedWriter bw = null;
-    	  FileOutputStream output1=new FileOutputStream("./찜한요리.txt", true);
+         BufferedWriter bw = null;
+         FileOutputStream output1=new FileOutputStream("./찜한요리.txt", true);
           OutputStreamWriter writer1=new OutputStreamWriter(output1, Charset.forName("EUC-KR"));
           bw = new BufferedWriter(writer1);
           String s = (Id + "#" + FoodName + "#" + FoodIntroduce + "#" + Level + "#" + Recipe + "#" + FoodMake);
@@ -113,40 +112,40 @@ public class MyFood {
    }
    
    public static void MyFoodRead(String Id, String p[], String q[], String r[], String s[], String t[][]) { // 찜한 요리 읽기
-	      try {
-	         String s1;
-	         String name[] = new String[10];
-	         String[] array;
-	         String[] array2 = null;
-	         BufferedReader bos = new BufferedReader(new FileReader("./찜한요리.txt"));
-	         while ((s1 = bos.readLine()) != null) {
-	            array = s1.split("#");
+         try {
+            String s1;
+            String name[] = new String[10];
+            String[] array;
+            String[] array2 = null;
+            BufferedReader bos = new BufferedReader(new FileReader("./찜한요리.txt"));
+            while ((s1 = bos.readLine()) != null) {
+               array = s1.split("#");
 
-	            if (Id.equals(array[0])) {
-	               p[count1] = array[1];
-	               q[count1] = array[2];
-	               r[count1] = array[3];
-	               s[count1] = array[4];
-	               array2 = array[5].split(">");
-	               count1++;
-	               count2++;
+               if (Id.equals(array[0])) {
+                  p[count1] = array[1];
+                  q[count1] = array[2];
+                  r[count1] = array[3];
+                  s[count1] = array[4];
+                  array2 = array[5].split(">");
+                  count1++;
+                  count2++;
 
-	               for (int i = 0; i < array2.length; i++) {
-	                  t[count2][i] = array2[i];
-	               }
-	            }
-	         }
+                  for (int i = 0; i < array2.length; i++) {
+                     t[count2][i] = array2[i];
+                  }
+               }
+            }
 
-	         if (count1 == 0) {
-	            p[0] = "찜한 목록이 없습니다.";
-	         }
+            if (count1 == 0) {
+               p[0] = "찜한 목록이 없습니다.";
+            }
 
-	         bos.close();
-	      } catch (IOException E10) {
-	         E10.printStackTrace();
-	      }
-	   }
+            bos.close();
+         } catch (IOException E10) {
+            E10.printStackTrace();
+         }
+      }
    public void getId(String a) {
-		Id1 = a;
-	}
+      Id1 = a;
+   }
 }

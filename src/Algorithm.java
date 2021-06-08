@@ -44,19 +44,17 @@ public class Algorithm {
                   }
             }
             for(int i = 0 ; i < arr2.length; i++){         // 중복되는 것이 1개일 경우
-               if(arr2[i] > 0) {
+               if(arr2[i] > 0 && arr2[i] < 2) {
                      arr3[a] = String.valueOf(i);
                      a++;
                   }
             }
             List<String> arr4 = new ArrayList<String>();
             for(int i = 0 ; i<arr3.length ; i++) {
-         	   if(arr3[i] != null) {
-         		   arr4.add(arr3[i]);
-         	   }
+               if(arr3[i] != null) {
+                  arr4.add(arr3[i]);
+               }
             }
-           
-            
             Recipe t = new Recipe();
             t.print(arr4);
             

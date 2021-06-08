@@ -1,7 +1,5 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import javax.swing.*;
 import java.awt.*;
 
@@ -55,14 +53,10 @@ public class Register extends JFrame {            // 회원가입화면
         j1.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent T) {                     //회원가입 데이터 저장
+         TableName t = new TableName();
+         MemberSql m = new MemberSql();
          try{
-            BufferedWriter bos = new BufferedWriter(new FileWriter("회원명단.txt",true));
-            bos.write(t1.getText()+"#");
-            bos.write(t2.getText()+"#");
-            bos.write(t3.getText()+"#");
-            bos.write(t4.getText()+"#");
-            bos.write(t5.getText()+"\r\n");
-            bos.close();
+            m.tableInsert(t1.getText(),t2.getText(),Integer.parseInt(t3.getText()),t4.getText(),t5.getText());
             JOptionPane.showMessageDialog(null, "회원가입을 축하합니다!!");
             dispose();
          }catch (Exception ex){

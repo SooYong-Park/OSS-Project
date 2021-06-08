@@ -1,9 +1,6 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import javax.swing.*;
 
 public class Login extends JFrame { // 로그인화면
@@ -61,34 +58,11 @@ public class Login extends JFrame { // 로그인화면
       ;
 
       b6.addActionListener(new ActionListener() {
-         int count = 0;
 
          @Override
          public void actionPerformed(ActionEvent e2) { // 로그인여부 결정
-        	 MemberSql m = new MemberSql();
-            try {
-               String[] array;
-               String s;
-               BufferedReader bos = new BufferedReader(new FileReader("회원명단.txt"));
-               while ((s = bos.readLine()) != null) {
-                  array = s.split("#");
-                  if (b4.getText().equals(array[1]) && b5.getText().equals(array[2])) {
-                	  se.getId(b4.getText());
-                	  mf.getId(b4.getText());
-                     JOptionPane.showMessageDialog(null, "로그인이 되었습니다!!");
-                     count++;
-                     dispose();
-                     f.first();
-                  }
-               }
-               if (count == 0) {
-                  JOptionPane.showMessageDialog(null, "로그인이 실패하였습니다.");
-               }
-               bos.close();
-
-            } catch (IOException E10) {
-               E10.printStackTrace();
-            }
+            MemberSql m = new MemberSql();
+            m.tableSelect(b4.getText(), Integer.parseInt(b5.getText()));
          }
       });
    }
