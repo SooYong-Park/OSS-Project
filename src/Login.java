@@ -65,6 +65,7 @@ public class Login extends JFrame { // 로그인화면
 
          @Override
          public void actionPerformed(ActionEvent e2) { // 로그인여부 결정
+        	 MemberSql m = new MemberSql();
             try {
                String[] array;
                String s;
