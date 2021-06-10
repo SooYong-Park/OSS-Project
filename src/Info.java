@@ -80,6 +80,8 @@ public class Info extends JFrame {
 		add(c1);
 
 		t.setBounds(400, 10, 200, 40);
+		// ma.setBounds(20, 40, 950, 40);
+
 		t1.setBounds(20, 160, 50, 30);
 		t2.setBounds(20, 200, 50, 30);
 		t3.setBounds(20, 240, 50, 30);
@@ -109,7 +111,7 @@ public class Info extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setTitle("요리 만들기 화면");
 		setVisible(true);
-		
+
 		StringBuilder sbr = new StringBuilder();
 		String s2;
 		for (int j = 0; j < 20; j++) {
@@ -121,11 +123,11 @@ public class Info extends JFrame {
 		MyFood m = new MyFood();
 		c1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				try {
 					JOptionPane.showMessageDialog(null, "찜했습니다!!");
 					m.MyFoodWrite2(name, sumry, level, s, s2);
-					
+
 				} catch (Exception ex) {
 					System.out.println("Errrrorororor");
 				}
@@ -152,12 +154,15 @@ public class Info extends JFrame {
 		}
 
 	}
+
 	public void setName(String c) {
 		this.name = c;
 	}
+
 	public void setSumry(String d) {
 		this.sumry = d;
 	}
+
 	public void setLevel(String e) {
 		this.level = e;
 	}

@@ -1,5 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import javax.swing.*;
 import java.awt.*;
 
@@ -19,8 +21,8 @@ public class Register extends JFrame {            // 회원가입화면
            Label l4 = new Label("주소");
            Label l5 = new Label("추가사항");
            add(l1);
-           add(l2);
-           add(l3);
+			add(l2);
+			add(l3);
            add(l4);
            add(l5);
            add(t1);

@@ -13,15 +13,17 @@ public class Select extends JFrame {
 	static String FoodProcess[][] = new String[10][10];
 	static String FoodProcess1[] = new String[10];
 	static String Id;
+
 	public void getId(String a) {
 		Id = a;
 	}
+
 	MyFood mf = new MyFood();
 	MyFoodInfo mfi = new MyFoodInfo();
-	
+
 	public void sel() {
-		mf.MyFoodRead(Id,FoodName,FoodInformation,Foodlevel,FoodIngredient,FoodProcess);
-	
+		mf.MyFoodRead(Id, FoodName, FoodInformation, Foodlevel, FoodIngredient, FoodProcess);
+
 		JPanel p = new JPanel();
 		p.setLayout(null);
 		b1 = new TextField();
@@ -44,7 +46,7 @@ public class Select extends JFrame {
 		add(b9);
 		b10 = new TextField();
 		add(b10);
-		
+
 		b1.setText(FoodName[0]);
 		b2.setText(FoodName[1]);
 		b3.setText(FoodName[2]);
@@ -55,7 +57,7 @@ public class Select extends JFrame {
 		b8.setText(FoodName[7]);
 		b9.setText(FoodName[8]);
 		b10.setText(FoodName[9]);
-		
+
 		c1 = new JButton("선택");
 		add(c1);
 		c2 = new JButton("선택");

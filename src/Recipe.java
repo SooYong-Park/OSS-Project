@@ -44,14 +44,36 @@ public class Recipe {
 		for (int i = 0; i < count; i++) {
 			igdet[i] = sn[i];
 		}
+		try {
+			String s; // txt파일 배열에 입력
+			BufferedReader bos = new BufferedReader(new FileReader(cigdetPath));
+			while ((s = bos.readLine()) != null) {
+				StringTokenizer tokens = new StringTokenizer(s, "#");
+				createIgdetrCode.add(tokens.nextToken());
+				createIgdet.add(tokens.nextToken());
+				createIgdetCpcty.add(tokens.nextToken());
+			}
+			bos.close();
+		} catch (Exception e) {
+			System.out.println(e + "+++++++++++++");
+		}
 
 		for (int j = 0; j < count; j++) { // 재료입력 count만큼 메소드 실행
 
 			inputIgdet(igdet[j]);
 
 		}
+		for (int h = 0; h < count; h++) {
+			for (int k = 0; k < createIgdet.size(); k++) { // 입력받은 재료 레시피코드와 txt파일에서 받은 레시피코드를 비교 후
+				if (createIgdet.get(k).equals(igdet[h])) {
+					Array.add(Integer.parseInt(createIgdetrCode.get(k)));
+				}
+			} // 일치하는것이 있으면 배열에 입력
+		}
+
 		Algorithm a = new Algorithm();
 		a.Algorithm(Array);
+
 	}
 
 	public static void inputIgdet(String igdet) {
@@ -74,30 +96,11 @@ public class Recipe {
 					String rCode = getTagValue("RECIPE_ID", eElement);
 					int int_val = Integer.parseInt(rCode);
 					Array.add(int_val);
-
 				}
 			}
-			String s; // txt파일 배열에 입력
-			BufferedReader bos = new BufferedReader(new FileReader(cigdetPath));
-			while ((s = bos.readLine()) != null) {
-				StringTokenizer tokens = new StringTokenizer(s, "#");
-				createIgdetrCode.add(tokens.nextToken());
-				createIgdet.add(tokens.nextToken());
-				createIgdetCpcty.add(tokens.nextToken());
-			
-			}
-			bos.close();
-
-			for (int k = 0; k < createIgdet.size(); k++) { // 입력받은 재료 레시피코드와 txt파일에서 받은 레시피코드를 비교 후
-				if (createIgdet.get(k).equals(igdet)) {
-					Array.add(Integer.parseInt(createIgdetrCode.get(k)));
-				}
-			} // 일치하는것이 있으면 배열에 입력
-
 		} catch (Exception e) {
-
+			System.out.println(e + "------");
 		}
-
 	}
 
 	private static String getTagValue(String tag, Element eElement) { // api에서 데이터 파싱하는 메소드
@@ -148,7 +151,7 @@ public class Recipe {
 			}
 			bos.close();
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e + "bbbbbbbb");
 		}
 	}
 
@@ -311,6 +314,7 @@ public class Recipe {
 				if (createIgdetrCode.get(k).equals(rcpIgdet)) {
 					cookRd[m] = createIgdet.get(k) + " " + createIgdetCpcty.get(k);
 					m++;
+
 				}
 			}
 			i.setRd(cookRd); // 재료 정보 저장

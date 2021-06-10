@@ -173,13 +173,13 @@ public class Swing extends JFrame {
 					list[2] = b3.getText();
 					list[3] = b4.getText();
 					list[4] = b5.getText();
-					Recipe.R(cnt,list);
+					Recipe.R(cnt, list);
 					n.name();
 				} catch (Exception ex) {
 					System.out.println("error");
 				}
 			}
 		});
-		
+
 	}
 }
